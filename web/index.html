@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Viewer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Cars Viewer</h1>
+        <div id="search-container">
+            <!-- TODO: Add input for search/filter -->
+            <input type="text" id="search-input" placeholder="Search cars...">
+            <button onclick="filterCars()">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section to display the list of cars -->
+        <section id="car-list" class="grid-container">
+            <!-- Cars will be dynamically populated here by JavaScript -->
+            <p>Loading cars...</p>
+        </section>
+
+        <!-- Hidden section for car details (modal or separate view) -->
+        <section id="car-details" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeDetails()">&times;</span>
+                <h2 id="detail-model">Car Model</h2>
+                <div id="detail-content">
+                    <!-- Details populated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
