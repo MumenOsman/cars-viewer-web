@@ -4,36 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
-        <h1>Cars Viewer</h1>
-        <div id="search-container">
-            <!-- TODO: Add input for search/filter -->
-            <input type="text" id="search-input" placeholder="Search cars...">
-            <button onclick="filterCars()">Search</button>
-        </div>
-    </header>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <span>TurboView</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search by model...">
+                    <button onclick="filterCars()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
 
-    <main>
-        <!-- Section to display the list of cars -->
-        <section id="car-list" class="grid-container">
-            <!-- Cars will be dynamically populated here by JavaScript -->
-            <p>Loading cars...</p>
-        </section>
+        <main>
+            <div class="herobox">
+                <h2>Discover Your Dream Ride</h2>
+                <p>Explore the latest models with detailed specifications.</p>
+            </div>
+            
+            <section id="car-list" class="card-grid">
+                <!-- Cars will be dynamically populated here -->
+                <div class="loading-spinner"></div>
+            </section>
+        </main>
 
-        <!-- Hidden section for car details (modal or separate view) -->
-        <section id="car-details" class="modal hidden">
+        <section id="car-details" class="modal-overlay hidden" onclick="if(event.target === this) closeDetails()">
             <div class="modal-content">
-                <span class="close-button" onclick="closeDetails()">&times;</span>
-                <h2 id="detail-model">Car Model</h2>
-                <div id="detail-content">
+                <button class="close-button" onclick="closeDetails()">&times;</button>
+                <div class="modal-body" id="detail-body">
                     <!-- Details populated here -->
                 </div>
             </div>
         </section>
-    </main>
+    </div>
 
     <script src="/static/script.js"></script>
 </body>

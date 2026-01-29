@@ -23,8 +23,14 @@ func main() {
 	fs := http.FileServer(http.Dir(filepath.Join("web", "static")))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
+	// Serve images from api/img
+	imgFs := http.FileServer(http.Dir(filepath.Join("api", "img")))
+	http.Handle("/img/", http.StripPrefix("/img/", imgFs))
+
 	// Route Handlers
 	http.HandleFunc("/", handleIndex)
+	http.HandleFunc("/details", handleDetails)
+	http.HandleFunc("/compare", handleCompare)
 	http.HandleFunc("/api/cars", handleGetCars)
 	http.HandleFunc("/api/cars/", handleGetCarDetails)
 
@@ -38,6 +44,14 @@ func main() {
 func handleIndex(w http.ResponseWriter, r *http.Request) {
 	// TODO: Serve the index.html file
 	http.ServeFile(w, r, filepath.Join("web", "index.html"))
+}
+
+func handleDetails(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, filepath.Join("web", "details.html"))
+}
+
+func handleCompare(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, filepath.Join("web", "compare.html"))
 }
 
 func handleGetCars(w http.ResponseWriter, r *http.Request) {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details - TurboView</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <a href="/" class="logo" style="text-decoration: none;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    <span>TurboView</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" style="color: var(--text-primary); text-decoration: none;">&larr; Back to Showroom</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="detail-container">
+                <div class="loading-spinner"></div>
+            </div>
+
+            <section class="recommendations-section">
+                <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.8rem;">Recommended for You</h3>
+                <div id="recommendations-list" class="card-grid">
+                    <!-- Recommendations will be populated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
